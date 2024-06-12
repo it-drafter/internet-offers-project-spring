@@ -1,0 +1,292 @@
+CATEGORIES:
+POST: http://localhost:8080/project/categories
+    {
+        "categoryName": "categoryName1",
+        "categoryDescription": "categoryDescription1"
+    }
+	
+	{
+        "categoryName": "categoryName2",
+        "categoryDescription": "categoryDescription2"
+    }
+	
+    {
+        "categoryName": "categoryName3",
+        "categoryDescription": "categoryDescription3"
+    }
+
+
+
+
+USERS:
+POST: http://localhost:8080/project/users/jobTitle/1
+    {
+        "firstName": "NewUserFirstName1",
+        "lastName": "NewUserLastName1",
+        "username": "NewUserUsername1",
+        "password": "NewUserPassword1",
+        "email": "newuseremail1@email.email",
+        "userRole": "ROLE_ADMIN"
+    }
+	
+    {
+        "firstName": "NewUserFirstName2",
+        "lastName": "NewUserLastName2",
+        "username": "NewUserUsername2",
+        "password": "NewUserPassword2",
+        "email": "newuseremail2@email.email",
+        "userRole": "ROLE_SELLER"
+    }
+	
+	{
+        "firstName": "NewUserFirstName3",
+        "lastName": "NewUserLastName3",
+        "username": "NewUserUsername3",
+        "password": "NewUserPassword3",
+        "email": "newuseremail3@email.email",
+        "userRole": "ROLE_CUSTOMER"
+    }
+
+
+
+
+OFFERS:
+POST:
+	http://localhost:8080/project/offers/1/seller/2
+   {
+       "offerName": "offerName1",
+       "offerDescription": "offerDescription1",
+       "regularPrice": 10.15,
+       "actionPrice": 9.15,
+       "imagePath": "imagePath1",
+       "availableOffers": 100,
+       "boughtOffers": 60,
+       "offerStatus": "AWAITING_APPROVAL"
+   }
+   
+   http://localhost:8080/project/offers/2/seller/2
+   {
+       "offerName": "offerName2",
+       "offerDescription": "offerDescription2",
+       "regularPrice": 100.15,
+       "actionPrice": 90.15,
+       "imagePath": "imagePath2",
+       "availableOffers": 1000,
+       "boughtOffers": 500,
+       "offerStatus": "APPROVED"
+   }
+   
+   http://localhost:8080/project/offers/3/seller/2
+   {
+       "offerName": "offerName3",
+       "offerDescription": "offerDescription3",
+       "regularPrice": 1.15,
+       "actionPrice": 0.15,
+       "imagePath": "imagePath3",
+       "availableOffers": 300,
+       "boughtOffers": 250,
+       "offerStatus": "DECLINED"
+   }
+   
+   http://localhost:8080/project/offers/1/seller/2
+   {
+       "offerName": "offerName4",
+       "offerDescription": "offerDescription4",
+       "regularPrice": 5000.15,
+       "actionPrice": 4000.15,
+       "imagePath": "imagePath4",
+       "availableOffers": 100,
+       "boughtOffers": 60,
+       "offerStatus": "EXPIRED"
+   }
+   
+OFFERS:
+PUT:
+	http://localhost:8080/project/offers/1/category/2
+    {
+       "offerName": "offerName1",
+       "offerDescription": "offerDescription111",
+       "regularPrice": 10.15,
+       "actionPrice": 9.15,
+       "imagePath": "imagePath1",
+       "availableOffers": 100,
+       "boughtOffers": 60,
+       "offerStatus": "AWAITING_APPROVAL"
+   }
+   
+   http://localhost:8080/project/offers/2/category/3
+      {
+       "offerName": "offerName2",
+       "offerDescription": "offerDescription222",
+       "regularPrice": 100.15,
+       "actionPrice": 90.15,
+       "imagePath": "imagePath2",
+       "availableOffers": 1000,
+       "boughtOffers": 500,
+       "offerStatus": "APPROVED"
+   }
+   
+   http://localhost:8080/project/offers/3/category/1
+   {
+       "offerName": "offerName3",
+       "offerDescription": "offerDescription333",
+       "regularPrice": 1.15,
+       "actionPrice": 0.15,
+       "imagePath": "imagePath3",
+       "availableOffers": 300,
+       "boughtOffers": 250,
+       "offerStatus": "DECLINED"
+   }
+   
+   http://localhost:8080/project/offers/4/category/2
+   {
+       "offerName": "offerName4",
+       "offerDescription": "offerDescription444",
+       "regularPrice": 5000.15,
+       "actionPrice": 4000.15,
+       "imagePath": "imagePath4",
+       "availableOffers": 100,
+       "boughtOffers": 60,
+       "offerStatus": "EXPIRED"
+   }
+   
+BILLS:
+POST: 
+	http://localhost:8080/project/bills/1/buyer/3
+	{
+		"paymentMade": true,
+		"paymentCanceled": false
+	}
+	
+	http://localhost:8080/project/bills/2/buyer/3
+	{
+		"paymentMade": true,
+		"paymentCanceled": false
+	}
+	
+	http://localhost:8080/project/bills/3/buyer/3
+	{
+    "paymentMade": false,
+    "paymentCanceled": false
+	}
+	
+	http://localhost:8080/project/bills/4/buyer/3
+	{
+    "paymentMade": true,
+    "paymentCanceled": true
+	}
+	
+	http://localhost:8080/project/bills/1/buyer/3
+	{
+    "paymentMade": true,
+    "paymentCanceled": true
+	}
+
+BILLS:
+PUT: http://localhost:8080/project/bills/1
+	{
+		"billCreated": "2024-05-15",
+		"paymentMade": false,
+		"paymentCanceled": false,
+		"offer": {"id": 4},
+		"user": {"id": 3}
+	}
+	
+BILLS:
+GET by buyer: http://localhost:8080/project/bills/findByBuyer/3
+GET by category: http://localhost:8080/project/bills/findByCategory/1
+
+VOUCHERS:
+POST: 
+	http://localhost:8080/project/vouchers/1/buyer/3
+	{
+		"expirationDate": "2024-09-15",
+		"isUsed": false
+	}
+	
+	http://localhost:8080/project/vouchers/2/buyer/3
+	{
+		"expirationDate": "2024-11-15",
+		"isUsed": false
+	}
+	
+	http://localhost:8080/project/vouchers/3/buyer/3
+	{
+		"expirationDate": "2024-12-15",
+		"isUsed": true
+	}
+
+VOUCHERS
+PUT: http://localhost:8080/project/vouchers/1
+	{
+		"expirationDate": "2024-12-15",
+		"isUsed": false,
+		"offer": {"id": 4},
+		"user": {"id": 3}
+	}
+	
+VOUCHERS
+GET by buyer: http://localhost:8080/project/vouchers/findByBuyer/3
+
+BANK ACCOUNTS
+POST: http://localhost:8080/project/bankAccounts/user/1
+	{
+		"accountNumber": "0001",
+		"accountType": "Current",
+		"active": true
+	}
+	
+	{
+    "accountNumber": "0002",
+    "accountType": "Savings",
+    "active": false
+	}
+	
+	{
+    "accountNumber": "0003",
+    "accountType": "Shared",
+    "active": true
+	}
+	
+BANK ACCOUNTS
+PUT: http://localhost:8080/project/bankAccounts/1
+	{
+		"accountNumber": "0001",
+		"accountType": "Current",
+		"active": false
+	}
+	
+BANK ACCOUNTS
+GET:
+http://localhost:8080/project/bankAccounts/admin
+http://localhost:8080/project/bankAccounts/seller
+http://localhost:8080/project/bankAccounts/customer
+
+JOB TITLES
+POST: http://localhost:8080/project/jobTitles
+{
+    "jobTitleName": "JobTitleName1",
+    "jobTitleDescription": "JobTitleDesc1",
+    "sallary": 100.0
+}
+
+{
+    "jobTitleName": "JobTitleName2",
+    "jobTitleDescription": "JobTitleDesc2",
+    "sallary": 200.0
+}
+
+JOB TITLES
+PUT: http://localhost:8080/project/jobTitles/1
+{
+    "jobTitleName": "JobTitleName111",
+    "jobTitleDescription": "JobTitleDesc111",
+    "sallary": 11100.0
+}
+
+
+JOB TITLES
+GET:
+http://localhost:8080/project/jobTitles/employee
+http://localhost:8080/project/jobTitles/manager
+http://localhost:8080/project/jobTitles/ceo

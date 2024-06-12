@@ -10,3 +10,8 @@ Download .zip with all included files, or clone the project instead:
 ```
 
 You will need JDK 17 & IntelliJ IDEA IDE installed in your system to compile and run this program.
+
+## Docs
+In 'project-docs' folder you can find:
+- project EER model
+- URL list and JSON object for endpoints testing
